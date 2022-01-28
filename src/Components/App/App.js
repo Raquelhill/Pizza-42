@@ -1,6 +1,6 @@
 import './App.css';
-// import LoginForm from '../LoginForm/LoginForm';
 import Header from '../Header/Header';
+import LandingPage from '../LandingPage/LandingPage';
 import Footer from '../Footer/Footer';
 import Profile from '../Profile/Profile';
 import LoginButton from '../LoginButton/LoginButton';
@@ -10,10 +10,10 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Profile />
-      {/* <LoginForm /> */}
       <LoginButton />
       <LogoutButton />
+      <Profile />
+      <LandingPage />
       <Footer />
     </div>
   );
