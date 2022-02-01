@@ -7,8 +7,10 @@ import { Auth0Provider } from '@auth0/auth0-react';
 ReactDOM.render(
   <Auth0Provider
     domain="dev-3m7cus37.us.auth0.com"
-    clientId="lLTYQXxi26esc3yNZQkEm7bxmzkA6wJX"
+    clientId="eJPH4Gye0ZRi0VEWBqrSyjghHj8oz3Jd"
     redirectUri={window.location.origin}
+    audience="https://dev-3m7cus37.us.auth0.com/api/v2/"
+    scope="read:current_user update:current_user_metadata"
   >
     <App />
   </Auth0Provider>,
