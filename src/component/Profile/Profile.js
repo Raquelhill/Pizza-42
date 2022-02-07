@@ -23,6 +23,7 @@ const Profile = () => {
             Authorization: `Bearer ${accessToken}`,
           },
         });
+        console.log('TOKEN', accessToken);
 
         const { user_metadata } = await metadataResponse.json();
 
