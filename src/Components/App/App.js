@@ -6,7 +6,12 @@ import OrderCardContainer from '../OrderCardContainer/OrderCardContainer';
 import Profile from '../Profile/Profile';
 import LoginButton from '../LoginButton/LoginButton';
 import LogoutButton from '../LogoutButton/LogoutButton';
-import { getData } from '../../apiCalls';
+import {
+  orderCheese,
+  orderPepperoni,
+  orderSausage,
+  orderVegetarian,
+} from '../../apiCalls';
 
 const axios = require('axios');
 
@@ -30,9 +35,14 @@ function App() {
       <Header />
       <LogoutButton />
       <LoginButton />
-      <LandingPage />
-      <OrderCardContainer getData={getData} />
       <Profile />
+      <LandingPage />
+      <OrderCardContainer
+        orderCheese={orderCheese}
+        orderPepperoni={orderPepperoni}
+        orderSausage={orderSausage}
+        orderVegetarian={orderVegetarian}
+      />
       <Footer />
     </div>
   );
