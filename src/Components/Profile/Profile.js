@@ -43,7 +43,7 @@ const Profile = () => {
         <p>{user.email}</p>
         <h3>Previous Orders</h3>
         {userMetadata ? (
-          <pre>{JSON.stringify(userMetadata, null, 10)}</pre>
+          <pre>{JSON.stringify(userMetadata, null, 2)}</pre>
         ) : (
           'No previous orders'
         )}
