@@ -6,22 +6,23 @@ import OrderCardContainer from '../OrderCardContainer/OrderCardContainer';
 import Profile from '../Profile/Profile';
 import LoginButton from '../LoginButton/LoginButton';
 import LogoutButton from '../LogoutButton/LogoutButton';
+import { getData } from '../../apiCalls';
 
 const axios = require('axios');
 
-const options = {
-  method: 'GET',
-  url: 'https://pizza42-api',
-  headers: { authorization: 'Bearer TOKEN' },
-};
+// const options = {
+//   method: 'GET',
+//   url: 'https://pizza42-api',
+//   headers: { authorization: 'Bearer TOKEN' },
+// };
 
-axios(options)
-  .then((response) => {
-    console.log(response.data);
-  })
-  .catch((error) => {
-    console.log(error);
-  });
+// axios(options)
+//   .then((response) => {
+//     console.log(response.data);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   });
 
 function App() {
   return (
@@ -30,7 +31,7 @@ function App() {
       <LogoutButton />
       <LoginButton />
       <LandingPage />
-      <OrderCardContainer />
+      <OrderCardContainer getData={getData} />
       <Profile />
       <Footer />
     </div>
