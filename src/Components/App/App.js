@@ -13,22 +13,6 @@ import {
   orderVegetarian,
 } from '../../apiCalls';
 
-const axios = require('axios');
-
-// const options = {
-//   method: 'GET',
-//   url: 'https://pizza42-api',
-//   headers: { authorization: 'Bearer TOKEN' },
-// };
-
-// axios(options)
-//   .then((response) => {
-//     console.log(response.data);
-//   })
-//   .catch((error) => {
-//     console.log(error);
-//   });
-
 function App() {
   return (
     <div className="App">
