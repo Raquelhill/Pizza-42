@@ -1,52 +1,20 @@
-import React, { useEffect, useState } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import './Profile.css';
 
-const Profile = () => {
-  const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
-  const [userMetadata, setUserMetadata] = useState(null);
-
-  useEffect(() => {
-    const getUserMetadata = async () => {
-      const domain = 'dev-3m7cus37.us.auth0.com';
-
-      try {
-        const accessToken = await getAccessTokenSilently({
-          audience: `https://${domain}/api/v2/`,
-          scope: 'read:current_user',
-        });
-
-        const userDetailsByIdUrl = `https://${domain}/api/v2/users/${user.sub}`;
-
-        const metadataResponse = await fetch(userDetailsByIdUrl, {
-          headers: {
-            Authorization: `Bearer ${accessToken}`,
-          },
-        });
-        console.log('TOKEN', accessToken);
-
-        const { user_metadata } = await metadataResponse.json();
-
-        setUserMetadata(user_metadata);
-      } catch (e) {
-        console.log(e.message);
-      }
-    };
-
-    getUserMetadata();
-  }, [getAccessTokenSilently, user?.sub]);
-
+const Profile = (userMetadata) => {
+  console.log(userMetadata);
+  const { user, isAuthenticated } = useAuth0();
   return (
     isAuthenticated && (
       <div>
-        <img className="user-pic" src={user.picture} alt={user.name} />
+        <img src={user.picture} alt={user.name} />
         <h2>{user.name}</h2>
         <p>{user.email}</p>
-        <h3>Previous Orders</h3>
+        <h3>Previous order</h3>
         {userMetadata ? (
-          <pre>{JSON.stringify(userMetadata, null, 2)}</pre>
+          <h3>{JSON.stringify(userMetadata)}</h3>
         ) : (
-          'No previous orders'
+          'You have never ordered from Pizza 42.  Welcome!'
         )}
       </div>
     )
